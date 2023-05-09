@@ -1,27 +1,30 @@
 function shuffle(array, times) {
+    let newArray = Array.from(array);
     for (let i = 1; i <= times; i++) {
-        let currentIndex = array.length, randomIndex;
+        let currentIndex = newArray.length, randomIndex;
         while (currentIndex != 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
-            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            [newArray[currentIndex], newArray[randomIndex]] = [newArray[randomIndex], newArray[currentIndex]];
         }
     }
-    return array;
+    return newArray;
 }
-let teams = ['Tigres', 'Toluca', 'America', 'Rayados', 'Atlas', 'Santos', 'Chivas', 'San Luis'];
-let people = ['Kevin', 'Jony', 'Oscar', 'Chan', 'Core', 'Yona', 'Edgar', 'Antonio'];
-shuffle(people, 3);
-shuffle(teams, 3);
-let list = [];
+const teams = ['Tigres', 'Toluca', 'America', 'Rayados', 'Atlas', 'Santos', 'Chivas', 'San Luis'];
+const people = ['Kevin', 'Jony', 'Oscar', 'Chan', 'Core', 'Yona', 'Edgar', 'Antonio'];
 
-function raffle(person, index) {
-    let assignation = {
-        participante: person,
-        equipo: teams[index]
-    }
-    list.push(assignation);
+function raffle(teams, people) {
+    let list = [];
+    const teamsShuffled = shuffle(teams, 3);
+    const peopleShuffled = shuffle(people, 3);
+    peopleShuffled.forEach((person, index) => {
+        let assignation = {
+            participante: person,
+            equipo: teamsShuffled[index]
+        }
+        list.push(assignation);
+    });
+    return list;
 }
 
-people.forEach((person, index) => raffle(person, index));
-console.log(list[0].participante);
+console.log(raffle(teams, people));
