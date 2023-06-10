@@ -1,5 +1,5 @@
 const data = {
-    fLastName: 'ÑÑO',
+    fLastName: 'gonzalez',
     sLastName: 'NAJERA',
     name: 'Erique',
     birthDate: {
@@ -7,20 +7,64 @@ const data = {
         month: '05',
         day: '11'
     },
-    state: 'NL',
-    sex: 'HOMBRE'
+    state: 'quintana roo',
+    sex: 'no binario'
 };
 
 function validateData(info) {
     let infoCopy = structuredClone(info)
-    infoCopy.name = 'Kevin'
+    const states = {
+        "AGUASCALIENTES": "AS",
+        "BAJA CALIFORNIA": "BC",
+        "BAJA CALIFORNIA SUR": "BS",
+        "CAMPECHE": "CC",
+        "CHIAPAS": "CS",
+        "CHIHUAHUA": "CH",
+        "COAHUILA": "CL",
+        "COLIMA": "CM",
+        "DISTRITO FEDERAL": "DF",
+        "DURANGO": "DG",
+        "GUANAJUATO": "GT",
+        "GUERRERO": "GR",
+        "HIDALGO": "HG",
+        "JALISCO": "JC",
+        "MEXICO": "MC",
+        "MICHOACAN": "MN",
+        "MORELOS": "MS",
+        "NAYARIT": "NT",
+        "NUEVO LEON": "NL",
+        "OAXACA": "OC",
+        "PUEBLA": "PL",
+        "QUERETARO": "QT",
+        "QUINTANA ROO": "QR",
+        "SAN LUIS POTOSI": "SP",
+        "SINALOA": "SL",
+        "SONORA": "SR",
+        "TABASCO": "TC",
+        "TAMAULIPAS": "TS",
+        "TLAXCALA": "TL",
+        "VERACRUZ": "VZ",
+        "YUCATAN": "YN",
+        "ZACATECAS": "ZS",
+    }
+    const sex = {
+        "HOMBRE": 'H',
+        "MUJER": 'M',
+        "NO BINARIO": 'X'
+    }
+    let currentState = info.state.toUpperCase();
+    infoCopy.state = states[currentState];
+
+    let currentSex = info.sex.toUpperCase();
+    infoCopy.sex = sex[currentSex];
+    infoCopy.fLastName = infoCopy.fLastName.toUpperCase();
+    infoCopy.sLastName = infoCopy.sLastName.toUpperCase();
+    infoCopy.name = infoCopy.name.toUpperCase();
+    infoCopy.sex = infoCopy.sex.toUpperCase();
     return infoCopy;
 }
 
 let data2 = validateData(data);
-
-console.log(data2);
-console.log(data);
 
 function getCurp(info) {
     const { fLastName, sLastName, name, birthDate, state, sex } = info
@@ -70,5 +114,5 @@ function getCurp(info) {
     return curpName + curpBirthdate + curpSufix;
 }
 
-let myCurp = getCurp(data);
+let myCurp = getCurp(data2);
 console.log(myCurp);
