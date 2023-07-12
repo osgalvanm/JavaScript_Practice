@@ -172,3 +172,77 @@ function popExample() {
     console.log(gidle.pop());
     console.log(gidle);
 }
+
+function pushExample() {
+    const redVelvet = ['irene', 'seulgi', 'joy', 'wendy'];
+    redVelvet.push('yeri');
+    console.log(redVelvet);
+}
+
+function reduceExample() {
+    const arr = [1, 2, 3, 4];
+    const sum = arr.reduce((total, current) => total + current);
+    console.log(sum);
+}
+
+function reduceRightExample() {
+    const array1 = [[0, 1], [2, 3], [4, 5]];
+    const result = array1.reduceRight((accumulator, currentValue) => accumulator.concat(currentValue));
+    console.log(result);
+}
+
+function reverseExample() {
+    const arr = [0, 1, 2, 3, 4];
+    console.log(arr.reverse());
+}
+
+function toLocaleStringExample() {
+    const prices = ["₩7", 500, 8123, 12];
+    const pricesFormatted = prices.toLocaleString("kr-KR", { style: "currency", currency: "KRW" });
+    console.log(pricesFormatted)
+}
+
+function toReversedExample() {
+    const arr = [0, 1, 2, 3, 4];
+    const reverseArr = arr.toReversed();
+    console.log(reverseArr);
+    console.log(arr);
+}
+
+function sortExample() {
+    const madrid = ["vini", "rodrygo", "bellingham", "modric"];
+    madrid.sort((a, b) => a.length - b.length);
+    console.log(madrid);
+}
+
+function toSortedExample() {
+    const madrid = ["vini", "rodrygo", "bellingham", "modric"];
+    madridSorted = madrid.toSorted((a, b) => a.length - b.length);
+    console.log(madrid);
+    console.log(madridSorted);
+}
+
+function spliceExample() {
+    const languages = ["english", "french", "japanese", "german"];
+    languages.splice(2, 1, "korean", "italian");
+    console.log(languages);
+}
+
+function toSplicedExample() {
+    const languages = ["english", "french", "japanese", "german"];
+    const newLanguages = languages.toSpliced(2, 1, "korean", "italian");
+    console.log(languages);
+    console.log(newLanguages);
+}
+
+function shiftExample() {
+    const sserafim = ['garam', 'eunchae', 'kazuha', 'yunjin', 'chaewon', 'sakura'];
+    sserafim.shift();
+    console.log(sserafim);
+}
+
+function sliceExample() {
+    const nums = [1, 2, 3, 4, 5, 6];
+    const numsSliced = nums.slice(1, 5);
+    console.log(numsSliced);
+}
